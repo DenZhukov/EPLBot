@@ -9,5 +9,4 @@ public class EpLbotApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EpLbotApplication.class, args);
 	}
-
 }
