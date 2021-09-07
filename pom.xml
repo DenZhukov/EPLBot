@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.EPLBot</groupId>
 	<artifactId>EPLbot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>EPLbot</name>
 	<description>TelegramBot for EPL fans</description>
 	<properties>
@@ -32,6 +32,18 @@
 			<groupId>org.telegram</groupId>
 			<artifactId>telegrambots-spring-boot-starter</artifactId>
 			<version>5.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>eu.ralph-schuster</groupId>
+			<artifactId>sportdata-api-client</artifactId>
+			<version>0.9.6</version>
 		</dependency>
 	</dependencies>
 
