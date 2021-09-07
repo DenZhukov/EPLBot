@@ -1,2 +1,2 @@
-# MU_Result
-Telegram bot to show MU result
+# EPLBot
+There is a TelegramBot for fans of EP
