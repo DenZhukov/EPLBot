@@ -50,4 +50,5 @@ public class EplTelegramBot extends TelegramLongPollingBot {
     public String getBotToken() {
         return token;
     }
+
 }
