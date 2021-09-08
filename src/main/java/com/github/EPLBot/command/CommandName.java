@@ -5,6 +5,8 @@ public enum CommandName {
     HELP("/help"),
     NO("noCommand"),
     TEST("/test"),
+    LAST_MATCH("/last_match"),
+    NEXT_MATCH("/next_match"),
     STOP("/stop");
 
     private final String commandName;

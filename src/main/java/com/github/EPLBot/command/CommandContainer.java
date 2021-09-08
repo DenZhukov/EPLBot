@@ -19,6 +19,8 @@ public class CommandContainer {
                 .put(STOP.getCommandName(), new StopCommand(sendBotMessageService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
                 .put(TEST.getCommandName(), new TestCommand(sendBotMessageService))
+                .put(LAST_MATCH.getCommandName(), new LastMatchCommand(sendBotMessageService))
+                .put(NEXT_MATCH.getCommandName(), new NextMatchCommand(sendBotMessageService))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .build();
 
