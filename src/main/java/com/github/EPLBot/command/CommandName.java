@@ -7,6 +7,7 @@ public enum CommandName {
     TEST("/test"),
     LAST_MATCH("/last_match"),
     NEXT_MATCH("/next_match"),
+    STAT("/stat"),
     STOP("/stop");
 
     private final String commandName;
