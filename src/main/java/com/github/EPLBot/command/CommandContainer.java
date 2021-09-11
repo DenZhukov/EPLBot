@@ -1,6 +1,8 @@
 package com.github.EPLBot.command;
 
 import com.github.EPLBot.service.SendBotMessageService;
+import com.github.EPLBot.service.TelegramUserService;
+import com.github.EPLBot.sportapiclient.SportClient;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.HashMap;
@@ -13,14 +15,15 @@ public class CommandContainer {
     private final Command unknownCommand;
     private final ImmutableMap<String, Command> commandMap;
 
-    public CommandContainer (SendBotMessageService sendBotMessageService) {
+    public CommandContainer (SendBotMessageService sendBotMessageService, SportClient sportClient, TelegramUserService telegramUserService) {
         commandMap = ImmutableMap.<String, Command>builder()
-                .put(START.getCommandName(), new StartCommand(sendBotMessageService))
-                .put(STOP.getCommandName(), new StopCommand(sendBotMessageService))
+                .put(START.getCommandName(), new StartCommand(sendBotMessageService, telegramUserService))
+                .put(STOP.getCommandName(), new StopCommand(sendBotMessageService, telegramUserService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
                 .put(TEST.getCommandName(), new TestCommand(sendBotMessageService))
-                .put(LAST_MATCH.getCommandName(), new LastMatchCommand(sendBotMessageService))
-                .put(NEXT_MATCH.getCommandName(), new NextMatchCommand(sendBotMessageService))
+                .put(LAST_MATCH.getCommandName(), new LastMatchCommand(sendBotMessageService, sportClient))
+                .put(NEXT_MATCH.getCommandName(), new NextMatchCommand(sendBotMessageService, sportClient))
+                .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .build();
 

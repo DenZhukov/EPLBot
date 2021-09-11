@@ -2,6 +2,8 @@ package com.github.EPLBot.bot;
 
 import com.github.EPLBot.command.CommandContainer;
 import com.github.EPLBot.service.SendBotMessageServiceImpl;
+import com.github.EPLBot.service.TelegramUserService;
+import com.github.EPLBot.sportapiclient.SportClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -23,8 +25,9 @@ public class EplTelegramBot extends TelegramLongPollingBot {
     @Value("${bot.token}")
     private String token;
 
-    public EplTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    public EplTelegramBot(SportClient sportClient, TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
+                sportClient, telegramUserService);
     }
 
     @Override
