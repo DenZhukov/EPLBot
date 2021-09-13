@@ -1,6 +1,5 @@
 package com.github.EPLBot.repository.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,16 +11,19 @@ public class TelegramUser {
 
     @Id
     @Column(name = "chat_id")
-    private Integer chatId;
+    private Long chatId;
 
     @Column(name = "active")
     private boolean active;
 
-    public Integer getChatId() {
+    @Column(name = "team_id")
+    private Integer teamId;
+
+    public Long getChatId() {
         return chatId;
     }
 
-    public void setChatId(Integer chatId) {
+    public void setChatId(Long chatId) {
         this.chatId = chatId;
     }
 
@@ -32,4 +34,8 @@ public class TelegramUser {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    public Integer getTeamId() { return teamId; }
+
+    public void setTeamId(Integer teamId) { this.teamId = teamId; }
 }

@@ -21,9 +21,10 @@ public class CommandContainer {
                 .put(STOP.getCommandName(), new StopCommand(sendBotMessageService, telegramUserService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
                 .put(TEST.getCommandName(), new TestCommand(sendBotMessageService))
-                .put(LAST_MATCH.getCommandName(), new LastMatchCommand(sendBotMessageService, sportClient))
-                .put(NEXT_MATCH.getCommandName(), new NextMatchCommand(sendBotMessageService, sportClient))
+                .put(LAST_MATCH.getCommandName(), new LastMatchCommand(sendBotMessageService, sportClient, telegramUserService))
+                .put(NEXT_MATCH.getCommandName(), new NextMatchCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
+                .put(ADD_TEAM.getCommandName(), new AddTeamSubCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .build();
 
