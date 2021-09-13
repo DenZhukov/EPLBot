@@ -1,6 +1,7 @@
 package com.github.EPLBot.command;
 
 import com.github.EPLBot.service.SendBotMessageService;
+import com.github.EPLBot.service.TelegramUserService;
 import com.github.EPLBot.sportapiclient.SportClient;
 import com.sportdataapi.SdaClient;
 import com.sportdataapi.SdaClientFactory;
@@ -15,20 +16,22 @@ import static com.sportdataapi.data.MatchStatus.ENDED;
 
 public class LastMatchCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
+    private final TelegramUserService telegramUserService;
     private final SportClient sportClient;
-    private final static int ID_TEAM = 2523;
     private final static int ID_SEASON = 1980;
 
-    public LastMatchCommand(SendBotMessageService sendBotMessageService, SportClient sportClient) {
+    public LastMatchCommand(SendBotMessageService sendBotMessageService, SportClient sportClient, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
         this.sportClient = sportClient;
+        this.telegramUserService = telegramUserService;
     }
 
     @Override
     public void execute(Update update) {
+        Integer teamId = telegramUserService.findByChatId(update.getMessage().getChatId()).get().getTeamId();
         List<Match> matchList = sportClient.getClient().list(ID_SEASON, ENDED).stream()
                 .filter(status -> status.getStatus().equals(ENDED))
-                .filter(team -> team.getHomeTeam().getId() == ID_TEAM | team.getGuestTeam().getId() == ID_TEAM)
+                .filter(team -> team.getHomeTeam().getId() == teamId | team.getGuestTeam().getId() == teamId)
                 .collect(Collectors.toList());
         Match lastMatch = null;
         if (matchList.stream().skip(matchList.size() - 1).findAny().isPresent())
