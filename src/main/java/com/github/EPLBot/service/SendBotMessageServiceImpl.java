@@ -3,11 +3,10 @@ package com.github.EPLBot.service;
 import com.github.EPLBot.bot.EplTelegramBot;
 import org.jvnet.hk2.annotations.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-@Service //подтип класса @Component для сервис-слоя
+@Service
 public class SendBotMessageServiceImpl implements SendBotMessageService {
 
     private final EplTelegramBot eplTelegramBot;

@@ -3,14 +3,10 @@ package com.github.EPLBot.command;
 import com.github.EPLBot.service.SendBotMessageService;
 import com.github.EPLBot.service.TelegramUserService;
 import com.github.EPLBot.sportapiclient.SportClient;
-import com.sportdataapi.SdaClient;
-import com.sportdataapi.SdaClientFactory;
-import com.sportdataapi.client.MatchesClient;
 import com.sportdataapi.data.Match;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.sportdataapi.data.MatchStatus.NOT_STARTED;
 
@@ -28,11 +24,8 @@ public class NextMatchCommand implements Command{
 
     @Override
     public void execute(Update update) {
-        Integer teamId = telegramUserService.findByChatId(update.getMessage().getChatId()).get().getTeamId();
-        List<Match> matchList = sportClient.getClient().list(ID_SEASON, NOT_STARTED).stream()
-                .filter(status -> status.getStatus().equals(NOT_STARTED))
-                .filter(team -> team.getHomeTeam().getId() == teamId | team.getGuestTeam().getId() == teamId)
-                .collect(Collectors.toList());
+        Integer teamId = sportClient.getTeamId(telegramUserService, update);
+        List<Match> matchList = sportClient.getMatchesList(ID_SEASON, teamId, NOT_STARTED);
         Match nextMatch = null;
         if(matchList.stream().findFirst().isPresent())
             nextMatch = matchList.stream().findFirst().get();

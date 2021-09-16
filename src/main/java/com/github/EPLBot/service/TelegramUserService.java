@@ -12,5 +12,5 @@ public interface TelegramUserService {
 
     List<TelegramUser> findAllActiveUsers();
 
-    Optional<TelegramUser> findByChatId(Long chatId); //todo разобраться с Integer and Long/String
+    Optional<TelegramUser> findByChatId(Long chatId);
 }

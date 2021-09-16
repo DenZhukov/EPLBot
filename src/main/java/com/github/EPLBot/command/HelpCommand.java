@@ -13,9 +13,10 @@ public class HelpCommand implements Command{
                     "\n %s - finish work," +
                     "\n %s - show next match," +
                     "\n %s - show last match," +
+                    "\n %s - show last 5 matches," +
                     "\n %s - you already asked for it...",
             START.getCommandName(), STOP.getCommandName(), NEXT_MATCH.getCommandName(),
-            LAST_MATCH.getCommandName() ,HELP.getCommandName());
+            LAST_MATCH.getCommandName(), LAST_5_MATCHES.getCommandName() ,HELP.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

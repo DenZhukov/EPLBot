@@ -6,6 +6,7 @@ public enum CommandName {
     NO("noCommand"),
     TEST("/test"),
     LAST_MATCH("/last_match"),
+    LAST_5_MATCHES("/last_5_matches"),
     NEXT_MATCH("/next_match"),
     STAT("/stat"),
     ADD_TEAM("/addteam"),
