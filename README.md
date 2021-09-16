@@ -9,9 +9,9 @@ Sometimes you asked yourself - "When will my team play?" and etc. This Bot must 
 - User can choose favorite team;
 - User can request information about next match;
 - User can request information about last match;
-
-## Next steps
 - User can request information about last 5 matches;
+- 
+## Next steps
 - User can request information about all matches of the last round;
 - User can request information about all matches of the next round;
 - User can request league standings;
