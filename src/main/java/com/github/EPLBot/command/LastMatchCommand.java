@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.sportdataapi.data.MatchStatus.ENDED;
+import static com.sportdataapi.data.MatchStatus.NOT_STARTED;
 
 public class LastMatchCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
@@ -28,11 +29,8 @@ public class LastMatchCommand implements Command{
 
     @Override
     public void execute(Update update) {
-        Integer teamId = telegramUserService.findByChatId(update.getMessage().getChatId()).get().getTeamId();
-        List<Match> matchList = sportClient.getClient().list(ID_SEASON, ENDED).stream()
-                .filter(status -> status.getStatus().equals(ENDED))
-                .filter(team -> team.getHomeTeam().getId() == teamId | team.getGuestTeam().getId() == teamId)
-                .collect(Collectors.toList());
+        Integer teamId = sportClient.getTeamId(telegramUserService, update);
+        List<Match> matchList = sportClient.getMatchesList(ID_SEASON, teamId, ENDED);
         Match lastMatch = null;
         if (matchList.stream().skip(matchList.size() - 1).findAny().isPresent())
         lastMatch = matchList.stream().skip(matchList.size() - 1).findAny().get();
