@@ -10,7 +10,7 @@ Sometimes you asked yourself - "When will my team play?" and etc. This Bot must 
 - User can request information about next match;
 - User can request information about last match;
 - User can request information about last 5 matches;
-- 
+
 ## Next steps
 - User can request information about all matches of the last round;
 - User can request information about all matches of the next round;
