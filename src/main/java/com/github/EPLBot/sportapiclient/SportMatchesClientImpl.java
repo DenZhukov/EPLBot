@@ -1,6 +1,7 @@
 package com.github.EPLBot.sportapiclient;
 
 import com.github.EPLBot.service.TelegramUserService;
+import com.sportdataapi.SdaClient;
 import com.sportdataapi.SdaClientFactory;
 import com.sportdataapi.client.MatchesClient;
 import com.sportdataapi.data.Match;
@@ -21,9 +22,10 @@ public class SportMatchesClientImpl implements SportClient {
     }
 
     @Override
-    public MatchesClient getClient() {
-        return SdaClientFactory.newClient(sportApiToken).soccer().matches();
-    }
+    public SdaClient getSdaClient() { return SdaClientFactory.newClient(sportApiToken); }
+
+    @Override
+    public MatchesClient getMatchesClient() { return getSdaClient().soccer().matches(); }
 
     @Override
     public Integer getTeamId(TelegramUserService telegramUserService, Update update) {
@@ -32,7 +34,7 @@ public class SportMatchesClientImpl implements SportClient {
 
     @Override
     public List<Match> getMatchesList(int seasonId, Integer teamId, MatchStatus status){
-        return getClient().list(seasonId, status).stream()
+        return getMatchesClient().list(seasonId, status).stream()
                 .filter(statusMatch -> statusMatch.getStatus().equals(status))
                 .filter(team -> team.getHomeTeam().getId() == teamId | team.getGuestTeam().getId() == teamId)
                 .collect(Collectors.toList());

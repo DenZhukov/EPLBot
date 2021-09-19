@@ -49,7 +49,7 @@ public class AddTeamSubCommand implements Command{
     }
 
     private void sendTeamList(Long chatId){
-        String matchesId = sportClient.getClient().list(ID_SEASON, ENDED).stream()
+        String matchesId = sportClient.getMatchesClient().list(ID_SEASON, ENDED).stream()
                 .filter(round -> round.getRoundId() == 35014)
                 .map(team -> String.format("%s - %s\n%s - %s\n", team.getHomeTeam().getName(), team.getHomeTeam().getId(), team.getGuestTeam().getName(), team.getGuestTeam().getId()))
                 .collect(Collectors.joining());

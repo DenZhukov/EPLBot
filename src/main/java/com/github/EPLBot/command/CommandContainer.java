@@ -26,6 +26,7 @@ public class CommandContainer {
                 .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
                 .put(ADD_TEAM.getCommandName(), new AddTeamSubCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(LAST_5_MATCHES.getCommandName(), new LastFiveMatchCommand(sendBotMessageService, sportClient, telegramUserService))
+                .put(STANDING.getCommandName(), new LeagueStandingCommand(sendBotMessageService, sportClient))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .build();
 

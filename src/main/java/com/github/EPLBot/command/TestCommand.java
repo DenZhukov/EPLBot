@@ -37,8 +37,8 @@ public class TestCommand implements Command{
     @Override
     public void execute(Update update) {
         SdaClient client = SdaClientFactory.newClient("");
-//        LeaguesClient leaguesClient = client.soccer().leagues();
-//        League EPL = leaguesClient.get(237);
+        LeaguesClient leaguesClient = client.soccer().leagues();
+        League EPL = leaguesClient.get(777);
 //        TeamsClient teamsClient = client.soccer().teams();
 //        List<Team> EplTeams = teamsClient.list(EPL.getCountryId());
 //        SeasonsClient seasonsClient = client.soccer().seasons();
