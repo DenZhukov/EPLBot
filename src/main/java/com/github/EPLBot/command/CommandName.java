@@ -10,6 +10,7 @@ public enum CommandName {
     NEXT_MATCH("/next_match"),
     STAT("/stat"),
     ADD_TEAM("/addteam"),
+    STANDING("/standing"),
     STOP("/stop");
 
     private final String commandName;
