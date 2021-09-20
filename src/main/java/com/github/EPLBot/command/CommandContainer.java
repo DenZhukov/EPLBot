@@ -5,9 +5,6 @@ import com.github.EPLBot.service.TelegramUserService;
 import com.github.EPLBot.sportapiclient.SportClient;
 import com.google.common.collect.ImmutableMap;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static com.github.EPLBot.command.CommandName.*;
 
 public class CommandContainer {
@@ -27,6 +24,8 @@ public class CommandContainer {
                 .put(ADD_TEAM.getCommandName(), new AddTeamSubCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(LAST_5_MATCHES.getCommandName(), new LastFiveMatchCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(STANDING.getCommandName(), new LeagueStandingCommand(sendBotMessageService, sportClient))
+                .put(NEXT_ROUND.getCommandName(), new NextRoundCommand(sendBotMessageService, sportClient))
+                .put(LAST_ROUND.getCommandName(), new LastRoundCommand(sendBotMessageService, sportClient))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .build();
 
