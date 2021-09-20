@@ -11,10 +11,11 @@ Sometimes you asked yourself - "When will my team play?" and etc. This Bot must 
 - User can request information about last match;
 - User can request information about last 5 matches;
 - User can request league standings;
-
-## Next steps
 - User can request information about all matches of the last round;
 - User can request information about all matches of the next round;
+
+## Next steps
+- Refactor;
 - Add tests;
 - Add docker and deploy;
 
