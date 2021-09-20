@@ -11,6 +11,8 @@ public enum CommandName {
     STAT("/stat"),
     ADD_TEAM("/addteam"),
     STANDING("/standing"),
+    NEXT_ROUND("/next_round"),
+    LAST_ROUND("/last_round"),
     STOP("/stop");
 
     private final String commandName;

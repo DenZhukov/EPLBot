@@ -14,9 +14,13 @@ public class HelpCommand implements Command{
                     "\n %s - show next match," +
                     "\n %s - show last match," +
                     "\n %s - show last 5 matches," +
+                    "\n %s - show last round" +
+                    "\n %s - show next round" +
+                    "\n %s - show league standings" +
                     "\n %s - you already asked for it...",
             START.getCommandName(), STOP.getCommandName(), NEXT_MATCH.getCommandName(),
-            LAST_MATCH.getCommandName(), LAST_5_MATCHES.getCommandName() ,HELP.getCommandName());
+            LAST_MATCH.getCommandName(), LAST_5_MATCHES.getCommandName(), LAST_ROUND.getCommandName(),
+            NEXT_ROUND.getCommandName(), STANDING.getCommandName() ,HELP.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
