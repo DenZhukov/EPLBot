@@ -14,7 +14,6 @@ import static com.sportdataapi.data.MatchStatus.ENDED;
 public class LastRoundCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final SportClient sportClient;
-    private final static int ID_SEASON = 1980;
 
     public LastRoundCommand(SendBotMessageService sendBotMessageService, SportClient sportClient) {
         this.sendBotMessageService = sendBotMessageService;
@@ -23,15 +22,14 @@ public class LastRoundCommand implements Command{
 
     @Override
     public void execute(Update update) {
-        //toDo refactor; use Round (may be miss when some team skips a match)
-        List<Match> matchesMap = sportClient.getMatchesList(ID_SEASON, ENDED).stream()
+        List<Match> matchesMap = sportClient.getMatchesList(sportClient.getIdSeason(), ENDED).stream()
                 .sorted(new Comparator<Match>() {
                     @Override
                     public int compare(Match o1, Match o2) {
-                        return o1.getStart().getTime().hashCode() - o2.getStart().getTime().hashCode();
+                        return o2.getStart().getTime().hashCode() - o1.getStart().getTime().hashCode();
                     }
                 })
-                .collect(Collectors.toList());
+                .limit(10).collect(Collectors.toList());
 
         String roundMatches = matchesMap.stream()
                 .map(match -> String.format("%s %s %d:%d\n", match.getHomeTeam().getName(), match.getGuestTeam().getName(),

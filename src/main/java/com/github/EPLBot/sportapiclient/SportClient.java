@@ -5,11 +5,10 @@ import com.sportdataapi.SdaClient;
 import com.sportdataapi.client.MatchesClient;
 import com.sportdataapi.data.Match;
 import com.sportdataapi.data.MatchStatus;
-import com.sportdataapi.data.Team;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
 
 public interface SportClient {
 
@@ -22,5 +21,11 @@ public interface SportClient {
     List<Match> getMatchesList(int seasonId, Integer teamId, MatchStatus status);
 
     List<Match> getMatchesList(int seasonId, MatchStatus status);
+
+    int getIdSeason();
+
+    int getIdCountry();
+
+    SimpleDateFormat getDateFormat();
 
 }

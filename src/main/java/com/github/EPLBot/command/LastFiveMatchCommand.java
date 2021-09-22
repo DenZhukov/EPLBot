@@ -15,7 +15,6 @@ public class LastFiveMatchCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final SportClient sportClient;
     private final TelegramUserService telegramUserService;
-    private final static int ID_SEASON = 1980;
 
     public LastFiveMatchCommand(SendBotMessageService sendBotMessageService, SportClient sportClient, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -26,7 +25,7 @@ public class LastFiveMatchCommand implements Command{
     @Override
     public void execute(Update update) {
         Integer teamId = sportClient.getTeamId(telegramUserService, update);
-        List<Match> matchList = sportClient.getMatchesList(ID_SEASON, teamId, ENDED).stream()
+        List<Match> matchList = sportClient.getMatchesList(sportClient.getIdSeason(), teamId, ENDED).stream()
                 .limit(5).collect(Collectors.toList());
 
         String fiveMatches = matchList.stream()
