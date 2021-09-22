@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 public class LeagueStandingCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final SportClient sportClient;
-    private final static int ID_SEASON = 1980;
-    private final static int ID_COUNTRY = 42;
 
     public LeagueStandingCommand(SendBotMessageService sendBotMessageService, SportClient sportClient) {
         this.sendBotMessageService = sendBotMessageService;
@@ -22,8 +20,8 @@ public class LeagueStandingCommand implements Command{
 
     @Override
     public void execute(Update update) {
-        List<TeamStandings> listTeamStanding = sportClient.getSdaClient().soccer().standings().get(ID_SEASON).getTeamStandings();
-        List<Team> listTeams = sportClient.getSdaClient().soccer().teams().list(ID_COUNTRY);
+        List<TeamStandings> listTeamStanding = sportClient.getSdaClient().soccer().standings().get(sportClient.getIdSeason()).getTeamStandings();
+        List<Team> listTeams = sportClient.getSdaClient().soccer().teams().list(sportClient.getIdCountry());
 
         String teamStanding = listTeamStanding.stream()
                 .map(teamStandings -> String.format("%s %d\n", getNameTeam(listTeams, teamStandings.getTeamId()), teamStandings.getPoints()))

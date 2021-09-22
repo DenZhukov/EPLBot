@@ -14,7 +14,6 @@ public class NextMatchCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final SportClient sportClient;
     private final TelegramUserService telegramUserService;
-    private final static int ID_SEASON = 1980;
 
     public NextMatchCommand(SendBotMessageService sendBotMessageService, SportClient sportClient, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -25,7 +24,7 @@ public class NextMatchCommand implements Command{
     @Override
     public void execute(Update update) {
         Integer teamId = sportClient.getTeamId(telegramUserService, update);
-        List<Match> matchList = sportClient.getMatchesList(ID_SEASON, teamId, NOT_STARTED);
+        List<Match> matchList = sportClient.getMatchesList(sportClient.getIdSeason(), teamId, NOT_STARTED);
         Match nextMatch = null;
         if(matchList.stream().findFirst().isPresent())
             nextMatch = matchList.stream().findFirst().get();
@@ -33,7 +32,7 @@ public class NextMatchCommand implements Command{
         if(nextMatch != null)
         sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(),
                 nextMatch.getHomeTeam().getName() + " - " + nextMatch.getGuestTeam().getName() +
-                "\n" + nextMatch.getStart().getTime());
+                "\n" + sportClient.getDateFormat().format(nextMatch.getStart().getTime()));
         else sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(),
                 "Sorry, match not found");
 
