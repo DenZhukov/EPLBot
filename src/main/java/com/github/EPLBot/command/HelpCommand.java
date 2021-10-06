@@ -8,7 +8,7 @@ import static com.github.EPLBot.command.CommandName.*;
 public class HelpCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
 
-    private final static String HELP_MESSAGE = String.format("✨<b>Available commands</b>✨\n" +
+    public final static String HELP_MESSAGE = String.format("✨<b>Available commands</b>✨\n" +
                     "\n %s - get started," +
                     "\n %s - finish work," +
                     "\n %s - show next match," +
