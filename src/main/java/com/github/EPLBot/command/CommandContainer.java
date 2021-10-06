@@ -17,7 +17,6 @@ public class CommandContainer {
                 .put(START.getCommandName(), new StartCommand(sendBotMessageService, telegramUserService))
                 .put(STOP.getCommandName(), new StopCommand(sendBotMessageService, telegramUserService))
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
-                .put(TEST.getCommandName(), new TestCommand(sendBotMessageService))
                 .put(LAST_MATCH.getCommandName(), new LastMatchCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(NEXT_MATCH.getCommandName(), new NextMatchCommand(sendBotMessageService, sportClient, telegramUserService))
                 .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))

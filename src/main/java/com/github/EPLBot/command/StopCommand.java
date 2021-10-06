@@ -8,7 +8,7 @@ public class StopCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    private final static String STOP_MESSAGE = "Ok, you should be Arsenal's fan...";
+    public final static String STOP_MESSAGE = "Ok, you should be Arsenal's fan...";
 
     public StopCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;

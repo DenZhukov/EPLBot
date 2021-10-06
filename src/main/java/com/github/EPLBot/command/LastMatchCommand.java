@@ -3,19 +3,15 @@ package com.github.EPLBot.command;
 import com.github.EPLBot.service.SendBotMessageService;
 import com.github.EPLBot.service.TelegramUserService;
 import com.github.EPLBot.sportapiclient.SportClient;
-import com.sportdataapi.SdaClient;
-import com.sportdataapi.SdaClientFactory;
-import com.sportdataapi.client.MatchesClient;
 import com.sportdataapi.data.Match;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.sportdataapi.data.MatchStatus.ENDED;
-import static com.sportdataapi.data.MatchStatus.NOT_STARTED;
 
-public class LastMatchCommand implements Command{
+
+public class  LastMatchCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
     private final SportClient sportClient;
