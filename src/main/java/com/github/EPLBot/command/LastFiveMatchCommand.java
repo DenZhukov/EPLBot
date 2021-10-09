@@ -6,6 +6,7 @@ import com.github.EPLBot.sportapiclient.SportClient;
 import com.sportdataapi.data.Match;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,12 @@ public class LastFiveMatchCommand implements Command{
     public void execute(Update update) {
         Integer teamId = sportClient.getTeamId(telegramUserService, update);
         List<Match> matchList = sportClient.getMatchesList(sportClient.getIdSeason(), teamId, ENDED).stream()
+                .sorted(new Comparator<Match>() {
+                    @Override
+                    public int compare(Match o1, Match o2) {
+                        return o2.getId() - o1.getId();
+                    }
+                })
                 .limit(5).collect(Collectors.toList());
 
         String fiveMatches = matchList.stream()

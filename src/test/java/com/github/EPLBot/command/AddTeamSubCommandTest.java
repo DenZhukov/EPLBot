@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Unit-level testing for AddTeamSubCommand")
 class AddTeamSubCommandTest {
 
-    private EplTelegramBot eplTelegramBot;
     private TelegramUserService telegramUserService;
     private TelegramUser telegramUser;
     private Integer teamId;
@@ -22,8 +21,6 @@ class AddTeamSubCommandTest {
     @BeforeEach
     void setUp() {
         telegramUserService = Mockito.mock(TelegramUserService.class);
-        eplTelegramBot = Mockito.mock(EplTelegramBot.class);
-
         telegramUser = new TelegramUser();
         telegramUser.setChatId(123123L);
         telegramUser.setActive(true);
