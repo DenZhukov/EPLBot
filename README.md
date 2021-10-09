@@ -15,7 +15,6 @@ Sometimes you asked yourself - "When will my team play?" and etc. This Bot must 
 - User can request information about all matches of the next round;
 
 ## Next steps
-- Add tests;
 - Add docker and deploy;
 
 # Technological stack
