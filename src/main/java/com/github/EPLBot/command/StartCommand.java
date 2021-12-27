@@ -9,7 +9,7 @@ public class StartCommand implements Command{
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public final static String START_MESSAGE = "Hi EPL fan! I am convenient and quick assistant for people like you. Choose you team or click /help";
+    public final static String START_MESSAGE = "Hi EPL fan! I am convenient and quick assistant for people like you. Choose you team (command /addteam) or click /help";
 
     public StartCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;

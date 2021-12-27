@@ -11,6 +11,7 @@ public class HelpCommand implements Command{
     public final static String HELP_MESSAGE = String.format("✨<b>Available commands</b>✨\n" +
                     "\n %s - get started," +
                     "\n %s - finish work," +
+                    "\n %s - add team," +
                     "\n %s - show next match," +
                     "\n %s - show last match," +
                     "\n %s - show last 5 matches," +
@@ -18,7 +19,7 @@ public class HelpCommand implements Command{
                     "\n %s - show next round" +
                     "\n %s - show league standings" +
                     "\n %s - you already asked for it...",
-            START.getCommandName(), STOP.getCommandName(), NEXT_MATCH.getCommandName(),
+            START.getCommandName(), STOP.getCommandName(), ADD_TEAM.getCommandName(), NEXT_MATCH.getCommandName(),
             LAST_MATCH.getCommandName(), LAST_5_MATCHES.getCommandName(), LAST_ROUND.getCommandName(),
             NEXT_ROUND.getCommandName(), STANDING.getCommandName() ,HELP.getCommandName());
 
