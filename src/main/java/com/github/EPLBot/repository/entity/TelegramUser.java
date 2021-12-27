@@ -1,6 +1,5 @@
 package com.github.EPLBot.repository.entity;
 
-import jdk.jfr.DataAmount;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

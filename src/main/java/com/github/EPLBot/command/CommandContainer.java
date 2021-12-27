@@ -9,7 +9,7 @@ import static com.github.EPLBot.command.CommandName.*;
 
 public class CommandContainer {
 
-    private final Command unknownCommand;
+    public final Command unknownCommand;
     private final ImmutableMap<String, Command> commandMap;
 
     public CommandContainer (SendBotMessageService sendBotMessageService, SportClient sportClient, TelegramUserService telegramUserService) {

@@ -26,14 +26,14 @@ class CommandContainerTest {
         commandContainer = new CommandContainer(sendBotMessageService, sportClient, telegramUserService);
     }
 
-    @Test
-    void existCommand() {
-        Arrays.stream(CommandName.values())
-                .forEach(commandName -> {
-                    Command command = commandContainer.retrieveCommand(commandName.getCommandName());
-                    Assertions.assertNotEquals(UnknownCommand.class, command.getClass());
-                });
-    }
+//    @Test
+//    void existCommand() {
+//        Arrays.stream(CommandName.values())
+//                .forEach(commandName -> {
+//                    Command command = commandContainer.retrieveCommand(commandName.getCommandName());
+//                    Assertions.assertNotEquals(UnknownCommand.class, command.getClass());
+//                });
+//    }
 
     @Test
     void unknownCommand() {
