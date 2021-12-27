@@ -1,5 +1,5 @@
 # EPLBot
-There is a TelegramBot for fans of EPL (English Premier League)
+There is a TelegramBot for fans of EPL (English Premier League). @EPL_ScoreBot
 
 ## Idea
 Sometimes you asked yourself - "When will my team play?" and etc. This Bot must help you without unnecessary information and advertising. This one is how to ask a friend but the Bot knows for sure.
@@ -13,9 +13,7 @@ Sometimes you asked yourself - "When will my team play?" and etc. This Bot must 
 - User can request league standings;
 - User can request information about all matches of the last round;
 - User can request information about all matches of the next round;
-
-## Next steps
-- Add docker and deploy;
+- Now it's working @EPL_ScoreBot
 
 # Technological stack
 - SpringBoot as a skeleton framework;
